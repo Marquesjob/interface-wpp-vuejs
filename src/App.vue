@@ -1,6 +1,3 @@
-<script>
-</script>
-
 <template>
     <div>
         <section class="section">
@@ -9,6 +6,7 @@
 
                     <div class="column is-3 lista-de-conversas">
                         <div class="barra-superior" />
+                        <p v-for="conversa in conversas">{{ conversa.usuario }}</p>
                     </div>
 
                     <div class="column conversa-ativa">
@@ -22,6 +20,19 @@
         </section>
     </div>
 </template>
+
+<script>
+    import chats from './dataChats.js'
+    export default {
+        data: () => {
+            return {
+                conversas: chats
+            }
+        }
+    }
+
+</script>
+
 
 <style>
 
@@ -44,14 +55,18 @@
 
     .barra-superior {
         margin: 0;
-        height: 50px;
-        background: #EDEDED;
+        height: 60px;
+        background: #f0f2f5;
+        border-right: 1px solid #E1E1E1;
+
     }
 
     .barra-superior span {
-        line-height: 50px;
+        line-height: 60px;
         margin-left: 25px;
         font-weight: 500;
     }
 
 </style>
+
+
