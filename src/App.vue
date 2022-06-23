@@ -6,13 +6,21 @@
 
                     <div class="column is-3 lista-de-conversas">
                         <div class="barra-superior" />
-                        <p v-for="conversa in conversas">{{ conversa.usuario }}</p>
+                        <div class="item" v-for="(conversa, index) in conversas" v-on:click="activeIndex = index"
+                            v-bind:key="index">
+                            <div class="title is-6">{{ conversa.user }}</div>
+                            <div class="subtitle is-6">Última mensagem...</div>
+                        </div>
                     </div>
 
                     <div class="column conversa-ativa">
                         <div class="barra-superior">
-                            <span>Usuário</span>
+                            <span>{{ conversas[activeIndex].user }}</span>
                         </div>
+                        <Message
+                            v-for="(message, index) in conversas[activeIndex].messages"
+                            v-bind:key="index"
+                            :content="message.thisMessage" />
                     </div>
 
                 </div>
@@ -22,51 +30,75 @@
 </template>
 
 <script>
-    import chats from './dataChats.js'
-    export default {
-        data: () => {
-            return {
-                conversas: chats
-            }
+
+import chats from './dataChats.js'
+import Message from './Message.vue'
+
+export default {
+
+    data: () => {
+        return {
+            conversas: chats,
+            activeIndex: 0
         }
+    },
+
+    components: {
+        Message
     }
+
+}
+
 
 </script>
 
 
 <style>
+.columns {
+    min-height: 800px;
+    box-shadow: 0 3rem 3rem -1rem rgba(10, 10, 10, .2);
+}
 
-    .columns {
-         min-height: 800px;
-         box-shadow: 0 3rem 3rem -1rem rgba(10, 10, 10,.2);
-    }
-    
-    .column {
-        padding: 0;
-    }
-    
-    .lista-de-conversas {
-        background: white;
-    }
+.column {
+    padding: 0;
+}
 
-    .conversa-ativa {
-        background: #E5DDD5;
-    }
+.lista-de-conversas {
+    background: white;
+}
 
-    .barra-superior {
-        margin: 0;
-        height: 60px;
-        background: #f0f2f5;
-        border-right: 1px solid #E1E1E1;
+.conversa-ativa {
+    background: #E5DDD5;
+}
 
-    }
+.barra-superior {
+    margin: 0;
+    height: 60px;
+    background: #f0f2f5;
+    border-right: 1px solid #E1E1E1;
 
-    .barra-superior span {
-        line-height: 60px;
-        margin-left: 25px;
-        font-weight: 500;
-    }
+}
 
+.barra-superior span {
+    line-height: 60px;
+    margin-left: 25px;
+    font-weight: 500;
+}
+
+.item {
+    border-bottom: 1px solid #F2F2F2;
+    padding: 15px 30px;
+    margin-bottom: 0 !important;
+}
+
+.item:hover {
+    background: #f0f1f3;
+    cursor: pointer;
+}
+
+.subtitle {
+    color: #858585;
+}
 </style>
 
 

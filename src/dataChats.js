@@ -1,11 +1,26 @@
 const chats = [
 
     {
-        "usuario": "Usuário 1"
+        "user": "Usuário 1",
+        "messages": [
+            {
+                "time": "10:15",
+                "thisMessage": "Hi, this is the message for the user 1",
+                "green": "false"
+            }
+        ]
+
     },
-    
+
     {
-        "usuario": "Usuário 2"
+        "user": "Usuário 2",
+        "messages": [
+            {
+                "time": "10:15",
+                "thisMessage": "Hi, this is the message for the user 2",
+                "green": "false"
+            }
+        ]
     },
 
 ]
