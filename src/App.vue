@@ -14,13 +14,17 @@
                     </div>
 
                     <div class="column conversa-ativa">
+
                         <div class="barra-superior">
                             <span>{{ conversas[activeIndex].user }}</span>
                         </div>
-                        <Message
-                            v-for="(message, index) in conversas[activeIndex].messages"
-                            v-bind:key="index"
-                            :content="message.thisMessage" />
+
+                        <Message v-for="(message, index) in conversas[activeIndex].messages" v-bind:key="index" 
+                        :content="message.thisMessage" 
+                        :time="message.time" 
+                        :hostMessage="message.hostMessage"
+                         />
+
                     </div>
 
                 </div>
@@ -99,6 +103,7 @@ export default {
 .subtitle {
     color: #858585;
 }
+
 </style>
 
 
