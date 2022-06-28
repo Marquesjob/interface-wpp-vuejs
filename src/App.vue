@@ -1,4 +1,5 @@
 <template>
+
     <div>
         <section class="section">
             <div class="container">
@@ -18,12 +19,21 @@
                         <div class="barra-superior">
                             <span>{{ conversas[activeIndex].user }}</span>
                         </div>
+                        
+                        <div class="lista-mensagens">
 
-                        <Message v-for="(message, index) in conversas[activeIndex].messages" v-bind:key="index" 
-                        :content="message.thisMessage" 
-                        :time="message.time" 
-                        :hostMessage="message.hostMessage"
-                         />
+                            <Message v-for="(message, index) in conversas[activeIndex].messages"
+                            v-bind:key="index" 
+                            :content="message.thisMessage" 
+                            :time="message.time" 
+                            :hostMessage="message.hostMessage"
+                            />
+
+                        </div>
+
+                        <div class="barra-inferior">
+                            <input v-model="newMessage" type="text" class="input" placeholder="Insira sua mensagem">
+                        </div>
 
                     </div>
 
@@ -31,6 +41,7 @@
             </div>
         </section>
     </div>
+
 </template>
 
 <script>
@@ -43,7 +54,8 @@ export default {
     data: () => {
         return {
             conversas: chats,
-            activeIndex: 0
+            activeIndex: 0,
+            newMessage: ""
         }
     },
 
@@ -58,8 +70,34 @@ export default {
 
 
 <style>
+
+.barra-inferior {
+    bottom: 0;
+    width: 64.2em;
+    padding: 10px;
+    position: absolute;
+    background: #f0f0f0;
+}
+
+.barra-inferior input {
+    border: none;
+    padding: 10px;
+    margin: 0 50px;
+    width: 90%;
+    border-radius: 15px;
+    font-size: 16px;
+}
+
+.lista-mensagens {
+    height: 85%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    padding-bottom: 10px;
+}
+
 .columns {
-    min-height: 800px;
+    min-height: 850px;
     box-shadow: 0 3rem 3rem -1rem rgba(10, 10, 10, .2);
 }
 

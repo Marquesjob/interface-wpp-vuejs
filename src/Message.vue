@@ -1,9 +1,7 @@
 <template>
-    <div class="mensagem" :class="{green: hostMessage}">
-        {{ content }}
+    <div class="mensagem" :class="{host: hostMessage}">{{ content }}
         <span>{{ time }}</span>
     </div>
-    
 </template>
 
 
@@ -31,8 +29,9 @@
         color: gray;
     }
 
-    .green {
-        background: greenyellow !important;
+    .host {
+        background: rgb(228 242 217) !important;
+        align-self: flex-end;
     }
 
 
