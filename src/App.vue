@@ -24,7 +24,7 @@
 
                             <Message v-for="(message, index) in conversas[activeIndex].messages"
                             v-bind:key="index" 
-                            :content="message.thisMessage" 
+                            :content="message.content" 
                             :time="message.time" 
                             :hostMessage="message.hostMessage"
                             />
@@ -32,7 +32,7 @@
                         </div>
 
                         <div class="barra-inferior">
-                            <input v-model="newMessage" type="text" class="input" placeholder="Insira sua mensagem">
+                            <input v-model="newMessage" v-on:keyup.enter="sendMessage" type="text" class="input" placeholder="Insira sua mensagem">
                         </div>
 
                     </div>
@@ -55,12 +55,30 @@ export default {
         return {
             conversas: chats,
             activeIndex: 0,
-            newMessage: ""
+            newMessage: ''
         }
     },
 
     components: {
         Message
+    },
+
+    methods: {
+        sendMessage: function () {
+        
+           let currentTime = new Date().getHours() + ":" + new Date().getMinutes();
+           let Message =  {
+            time: currentTime,
+            content: this.newMessage,
+            hostMessage: true
+           }
+
+           this.conversas[this.activeIndex]
+           .messages
+           .push(Message);
+
+           this.newMessage = "";
+        }
     }
 
 }

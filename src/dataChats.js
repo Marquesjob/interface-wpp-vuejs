@@ -5,12 +5,12 @@ const chats = [
         "messages": [
             {
                 "time": "10:15",
-                "thisMessage": "Hi, this is the message for the user 1",
+                "content": "Hi, this is the message for the user 1",
                 "hostMessage": true
             },
             {
                 "time": "10:15",
-                "thisMessage": "Hi, this is the message for the user 1",
+                "content": "Hi, this is the message for the user 1",
                 "hostMessage": false
             }
         ],
@@ -23,12 +23,12 @@ const chats = [
         "messages": [
             {
                 "time": "10:15",
-                "thisMessage": "Hi, this is the message for the user 2",
+                "content": "Hi, this is the message for the user 2",
                 "hostMessage": true
             },
             {
                 "time": "10:15",
-                "thisMessage": "Hi, this is the message for the user 2",
+                "content": "Hi, this is the message for the user 2",
                 "hostMessage": false
             }
         ]
