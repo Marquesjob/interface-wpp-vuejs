@@ -1,6 +1,6 @@
 # interface-wpp-vuejs
 
-This template should help get you started developing with Vue 3 in Vite.
+Estudo sobre vueJS utilizando a interface do Whatsapp Web para a troca de mensagens.
 
 ## Recommended IDE Setup
 
