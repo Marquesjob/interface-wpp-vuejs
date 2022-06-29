@@ -26,7 +26,7 @@
     .mensagem span {
         margin-left: 25px;
         font-size: 11px;
-        color: gray;
+        color: rgb(122, 122, 122);
     }
 
     .host {
